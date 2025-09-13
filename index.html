@@ -30,7 +30,6 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.8);
     }
 
-    /* 🔵 Teks LANGEO STORE jadi biru terang + glowing */
     header h1 {
       font-size: 2.5rem;
       letter-spacing: 2px;
@@ -106,7 +105,6 @@
       transform: scale(1.05);
     }
 
-    /* Popup */
     .popup {
       display: none;
       position: fixed;
@@ -170,7 +168,6 @@
       box-shadow: 0 0 8px #f33;
     }
 
-    /* Tombol WA hijau terang */
     .wa-btn {
       background: #25D366;
       color: white;
@@ -189,7 +186,6 @@
   </header>
 
   <div class="container">
-    <!-- daftar diamond tetap sama seperti sebelumnya -->
     <div class="diamond-pack"><span>70 DM</span><span>Rp 16.000</span><button onclick="openForm('70 DM','Rp 16.000')">Beli</button></div>
     <div class="diamond-pack"><span>100 DM</span><span>Rp 20.000</span><button onclick="openForm('100 DM','Rp 20.000')">Beli</button></div>
     <div class="diamond-pack"><span>120 DM</span><span>Rp 23.000</span><button onclick="openForm('120 DM','Rp 23.000')">Beli</button></div>
@@ -222,7 +218,6 @@
     <div class="diamond-pack"><span>7290 DM</span><span>Rp 930.000</span><button onclick="openForm('7290 DM','Rp 930.000')">Beli</button></div>
   </div>
 
-  <!-- Popup Form -->
   <div id="popup" class="popup">
     <div class="popup-content">
       <h3>ISI DATA PEMBELIAN</h3>
@@ -245,7 +240,6 @@
   </div>
 
   <script>
-    // Efek animasi saat halaman dibuka
     window.onload = function () {
       document.body.classList.add('show');
       setTimeout(() => {
@@ -284,7 +278,13 @@
         return;
       }
 
-      const message = `NAMA AKUN: ${nama}%0AID: ${id}%0ADM: ${selectedDM}%0APAYMENT: ${payment}%0ATOTAL HARGA: ${selectedHarga}`;
+      const message = `HALO ADMIN, SAYA INGIN TO UP DIAMOND FREE FIRE%0A` +
+                      `NAMA AKUN: ${nama}%0A` +
+                      `ID: ${id}%0A` +
+                      `DM: ${selectedDM}%0A` +
+                      `PAYMENT: ${payment}%0A` +
+                      `TOTAL HARGA: ${selectedHarga}`;
+
       window.open(`https://wa.me/6281361245418?text=${message}`, '_blank');
     }
   </script>
