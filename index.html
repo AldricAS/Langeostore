@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LANGEO STORE - Top Up Free Fire</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      background: url('https://i.ibb.co/ZdnVdKy/freefire2025.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    body.show {
+      opacity: 1;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 15px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    }
+
+    /* 🔵 Teks LANGEO STORE jadi biru terang + glowing */
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      color: #00e5ff;
+      margin: 0;
+      text-shadow: 
+        0 0 10px #00e5ff,
+        0 0 20px #00e5ff,
+        0 0 30px #00e5ff,
+        2px 2px 8px black;
+    }
+
+    header h2 {
+      margin: 5px 0 0 0;
+      font-size: 1.3rem;
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px #ff9900;
+    }
+
+    .container {
+      margin: 20px auto;
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.8s ease-in-out;
+    }
+
+    .container.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .diamond-pack {
+      background: rgba(255,255,255,0.05);
+      margin: 8px 0;
+      padding: 12px 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .diamond-pack:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.02);
+      transition: 0.2s;
+    }
+
+    button {
+      background: #ffcc00;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      color: black;
+      box-shadow: 0 0 8px #ffcc00;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffaa00;
+      box-shadow: 0 0 12px #ffaa00;
+      transform: scale(1.05);
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .popup-content {
+      background: #222;
+      padding: 20px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .popup-content h3 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #ffcc00;
+    }
+
+    .popup-content input,
+    .popup-content select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .total-info {
+      display: flex;
+      justify-content: space-between;
+      color: #ffcc00;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .popup-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .popup-buttons button {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .close-btn {
+      background: #f33;
+      color: white;
+      box-shadow: 0 0 8px #f33;
+    }
+
+    /* Tombol WA hijau terang */
+    .wa-btn {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 0 8px #25D366;
+    }
+    .wa-btn:hover {
+      background: #1ebe5d;
+      box-shadow: 0 0 12px #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LANGEO STORE</h1>
+    <h2>💎 DAFTAR HARGA DIAMOND FREE FIRE 💎</h2>
+  </header>
+
+  <div class="container">
+    <!-- daftar diamond tetap sama seperti sebelumnya -->
+    <div class="diamond-pack"><span>70 DM</span><span>Rp 16.000</span><button onclick="openForm('70 DM','Rp 16.000')">Beli</button></div>
+    <div class="diamond-pack"><span>100 DM</span><span>Rp 20.000</span><button onclick="openForm('100 DM','Rp 20.000')">Beli</button></div>
+    <div class="diamond-pack"><span>120 DM</span><span>Rp 23.000</span><button onclick="openForm('120 DM','Rp 23.000')">Beli</button></div>
+    <div class="diamond-pack"><span>140 DM</span><span>Rp 25.000</span><button onclick="openForm('140 DM','Rp 25.000')">Beli</button></div>
+    <div class="diamond-pack"><span>160 DM</span><span>Rp 29.000</span><button onclick="openForm('160 DM','Rp 29.000')">Beli</button></div>
+    <div class="diamond-pack"><span>190 DM</span><span>Rp 31.000</span><button onclick="openForm('190 DM','Rp 31.000')">Beli</button></div>
+    <div class="diamond-pack"><span>200 DM</span><span>Rp 33.000</span><button onclick="openForm('200 DM','Rp 33.000')">Beli</button></div>
+    <div class="diamond-pack"><span>250 DM</span><span>Rp 40.000</span><button onclick="openForm('250 DM','Rp 40.000')">Beli</button></div>
+    <div class="diamond-pack"><span>300 DM</span><span>Rp 48.000</span><button onclick="openForm('300 DM','Rp 48.000')">Beli</button></div>
+    <div class="diamond-pack"><span>355 DM</span><span>Rp 55.000</span><button onclick="openForm('355 DM','Rp 55.000')">Beli</button></div>
+    <div class="diamond-pack"><span>375 DM</span><span>Rp 60.000</span><button onclick="openForm('375 DM','Rp 60.000')">Beli</button></div>
+    <div class="diamond-pack"><span>475 DM</span><span>Rp 70.000</span><button onclick="openForm('475 DM','Rp 70.000')">Beli</button></div>
+    <div class="diamond-pack"><span>500 DM</span><span>Rp 75.000</span><button onclick="openForm('500 DM','Rp 75.000')">Beli</button></div>
+    <div class="diamond-pack"><span>510 DM</span><span>Rp 80.000</span><button onclick="openForm('510 DM','Rp 80.000')">Beli</button></div>
+    <div class="diamond-pack"><span>565 DM</span><span>Rp 85.000</span><button onclick="openForm('565 DM','Rp 85.000')">Beli</button></div>
+    <div class="diamond-pack"><span>635 DM</span><span>Rp 90.000</span><button onclick="openForm('635 DM','Rp 90.000')">Beli</button></div>
+    <div class="diamond-pack"><span>720 DM</span><span>Rp 100.000</span><button onclick="openForm('720 DM','Rp 100.000')">Beli</button></div>
+    <div class="diamond-pack"><span>770 DM</span><span>Rp 105.000</span><button onclick="openForm('770 DM','Rp 105.000')">Beli</button></div>
+    <div class="diamond-pack"><span>800 DM</span><span>Rp 110.000</span><button onclick="openForm('800 DM','Rp 110.000')">Beli</button></div>
+    <div class="diamond-pack"><span>860 DM</span><span>Rp 120.000</span><button onclick="openForm('860 DM','Rp 120.000')">Beli</button></div>
+    <div class="diamond-pack"><span>930 DM</span><span>Rp 125.000</span><button onclick="openForm('930 DM','Rp 125.000')">Beli</button></div>
+    <div class="diamond-pack"><span>1000 DM</span><span>Rp 135.000</span><button onclick="openForm('1000 DM','Rp 135.000')">Beli</button></div>
+    <div class="diamond-pack"><span>1080 DM</span><span>Rp 150.000</span><button onclick="openForm('1080 DM','Rp 150.000')">Beli</button></div>
+    <div class="diamond-pack"><span>1450 DM</span><span>Rp 200.000</span><button onclick="openForm('1450 DM','Rp 200.000')">Beli</button></div>
+    <div class="diamond-pack"><span>2200 DM</span><span>Rp 300.000</span><button onclick="openForm('2200 DM','Rp 300.000')">Beli</button></div>
+    <div class="diamond-pack"><span>2350 DM</span><span>Rp 320.000</span><button onclick="openForm('2350 DM','Rp 320.000')">Beli</button></div>
+    <div class="diamond-pack"><span>2720 DM</span><span>Rp 370.000</span><button onclick="openForm('2720 DM','Rp 370.000')">Beli</button></div>
+    <div class="diamond-pack"><span>3640 DM</span><span>Rp 490.000</span><button onclick="openForm('3640 DM','Rp 490.000')">Beli</button></div>
+    <div class="diamond-pack"><span>4000 DM</span><span>Rp 530.000</span><button onclick="openForm('4000 DM','Rp 530.000')">Beli</button></div>
+    <div class="diamond-pack"><span>7290 DM</span><span>Rp 930.000</span><button onclick="openForm('7290 DM','Rp 930.000')">Beli</button></div>
+  </div>
+
+  <!-- Popup Form -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>ISI DATA PEMBELIAN</h3>
+      <input type="text" id="nama" placeholder="Nama Akun">
+      <input type="text" id="id" placeholder="ID Game (min 8 angka)">
+      <select id="payment">
+        <option value="">Pilih Metode Pembayaran</option>
+        <option value="DANA">DANA</option>
+        <option value="BAYAR LANGSUNG">BAYAR LANGSUNG</option>
+      </select>
+      <div class="total-info">
+        <span id="harga"></span>
+        <span id="totaldm"></span>
+      </div>
+      <div class="popup-buttons">
+        <button class="close-btn" onclick="closeForm()">Batal</button>
+        <button class="wa-btn" onclick="kirimWA()">Beli via WA</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Efek animasi saat halaman dibuka
+    window.onload = function () {
+      document.body.classList.add('show');
+      setTimeout(() => {
+        document.querySelector('.container').classList.add('show');
+        document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    };
+
+    let selectedDM = '';
+    let selectedHarga = '';
+
+    function openForm(dm, harga) {
+      selectedDM = dm;
+      selectedHarga = harga;
+      document.getElementById('harga').textContent = "TOTAL HARGA: " + harga;
+      document.getElementById('totaldm').textContent = "TOTAL DM: " + dm;
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closeForm() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function kirimWA() {
+      const nama = document.getElementById('nama').value.trim();
+      const id = document.getElementById('id').value.trim();
+      const payment = document.getElementById('payment').value;
+
+      if (!nama || !id || !payment) {
+        alert('Lengkapi semua data!');
+        return;
+      }
+
+      if (id.length < 8) {
+        alert('ID Game minimal 8 angka!');
+        return;
+      }
+
+      const message = `NAMA AKUN: ${nama}%0AID: ${id}%0ADM: ${selectedDM}%0APAYMENT: ${payment}%0ATOTAL HARGA: ${selectedHarga}`;
+      window.open(`https://wa.me/6281361245418?text=${message}`, '_blank');
+    }
+  </script>
+</body>
+</html>
